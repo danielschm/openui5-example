@@ -1,0 +1,33 @@
+<mvc:View
+    controllerName="app.controller.Main"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Example application with UI5">
+        <form:Form editable="true">
+            <form:FormContainer title="Adresse">
+                <form:FormElement label="Datum">
+                    <DatePicker value="{dataModel>/date}"/>
+                </form:FormElement>
+                <form:FormElement label="Name">
+                    <Input liveChange="handleNameInputLiveChange" value="{dataModel>/name}"/>
+                </form:FormElement>
+                <form:FormElement label="Email">
+                    <Input value="{dataModel>/email}"/>
+                </form:FormElement>
+            </form:FormContainer>
+            <form:layout>
+                <form:ResponsiveGridLayout/>
+            </form:layout>
+        </form:Form>
+
+        <List id="liste" items="{/}" headerText="{dataModel>/email}">
+            <StandardListItem title="{title}" description="{test}"/>
+        </List>
+
+        <Text text="{dataModel>/date}"/>
+        <Text text="{dataModel>/name}"/>
+        <Text text="{dataModel>/email}"/>
+        <Text text="{dataModel>/liveChange}"/>
+    </Page>
+</mvc:View>
